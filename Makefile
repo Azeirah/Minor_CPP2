@@ -10,13 +10,13 @@ LD = $(CC)
 # g = debug symbols
 # std=c++11 = C++11
 INCLUDE_PATHS = -Isrc/
-COMPILER_FLAGS = -Wall -Wextra -g -std=c++11 $(INCLUDE_PATHS)
+COMPILER_FLAGS = -Wall -Wextra -g -std=c++11 -pthread $(INCLUDE_PATHS)
 
 # Linker flags
 # g = debug symbols
 LIBS_PATH =
 LIBS =
-LINKER_FLAGS = -g
+LINKER_FLAGS = -g -pthread
 
 # Files to compile
 SRC_PATH = src/
