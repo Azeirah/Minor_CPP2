@@ -10,17 +10,23 @@
 #define Player_hpp
 
 #include <string>
+#include "domain/Building.hpp"
+#include "domain/Character.hpp"
+#include <memory>
+#include <vector>
+
+using std::unique_ptr;
+using std::vector;
 
 class Player {
 public:
-    Player() {}
-    Player(const std::string& name) : name {name} {}
+    Player();
+    Player(const std::string& name);
 
-    std::string get_name() const { return name; }
-    void set_name(const std::string& new_name) { name = new_name; }
-
-private:
     std::string name;
+    int gold;
+    vector<unique_ptr<Building>> buildings;
+    vector<unique_ptr<Character>> characters;
 };
 
 #endif /* Player_hpp */

@@ -37,14 +37,14 @@ void consume_command() // runs in its own thread
                 auto &player = clientInfo->get_player();
                 try {
                     // TODO handle command here
-                    client << player.get_name() << ", you wrote: '" << command.get_cmd() << "', but I'll ignore that for now.\r\n" << machiavelli::prompt;
+                    client << player.name << ", you wrote: '" << command.get_cmd() << "', but I'll ignore that for now.\r\n" << machiavelli::prompt;
                 } catch (const exception& ex) {
-                    cerr << "*** exception in consumer thread for player " << player.get_name() << ": " << ex.what() << '\n';
+                    cerr << "*** exception in consumer thread for player " << player.name << ": " << ex.what() << '\n';
                     if (client.is_open()) {
                         client.write("Sorry, something went wrong during handling of your request.\r\n");
                     }
                 } catch (...) {
-                    cerr << "*** exception in consumer thread for player " << player.get_name() << '\n';
+                    cerr << "*** exception in consumer thread for player " << player.name << '\n';
                     if (client.is_open()) {
                         client.write("Sorry, something went wrong during handling of your request.\r\n");
                     }
@@ -70,13 +70,13 @@ void handle_client(Socket client) // this function runs in a separate thread
         auto client_info = init_client_session(move(client));
         auto &socket = client_info->get_socket();
         auto &player = client_info->get_player();
-        socket << "Welcome, " << player.get_name() << ", have fun playing our game!\r\n" << machiavelli::prompt;
+        socket << "Welcome, " << player.name << ", have fun playing our game!\r\n" << machiavelli::prompt;
 
         while (true) { // game loop
             try {
                 // read first line of request
                 string cmd {socket.readline()};
-                cerr << '[' << socket.get_dotted_ip() << " (" << socket.get_socket() << ") " << player.get_name() << "] " << cmd << "\r\n";
+                cerr << '[' << socket.get_dotted_ip() << " (" << socket.get_socket() << ") " << player.name << "] " << cmd << "\r\n";
 
                 if (cmd == "quit") {
                     socket.write("Bye!\r\n");
