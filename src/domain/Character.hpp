@@ -14,11 +14,10 @@ class Character {
 public:
     Character(const string _name, const Colour _colour, const size_t _order_number);
 
-private:
-    string _name;
+    string name;
     // ability, perhaps as a lambda
-    Colour _colour;
-    size_t _order_number;
+    Colour colour;
+    size_t order_number;
 };
 
 

@@ -5,7 +5,7 @@
 #include "Character.hpp"
 
 Character::Character(const string _name, const Colour _colour, const size_t _order_number)
-: _name(_name)
-, _colour(_colour)
-, _order_number(_order_number)
+: name(_name)
+, colour(_colour)
+, order_number(_order_number)
 {}
