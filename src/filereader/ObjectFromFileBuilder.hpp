@@ -14,12 +14,13 @@ using std::vector;
 using std::unique_ptr;
 
 template<class T>
-class ObjectFromFileBuilder : public Reader {
+class ObjectFromFileBuilder : Reader {
 public:
     ObjectFromFileBuilder(const string& filepath);
     vector<unique_ptr<T>> get_objects();
 
 };
 
+#include "ObjectFromFileBuilder.tpp"
 
 #endif //LINEARALGEBRA_CHARACTERREADER_HPP
