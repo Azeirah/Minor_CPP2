@@ -24,14 +24,14 @@ namespace Util
     {
         int sum_of_weights = 0;
 
-        for(int num : weights){
+        for (int num : weights) {
             sum_of_weights += num;
         }
 
         int random = this->get_random_int(0, sum_of_weights-1);
 
-        for(int index = 0; index < (int)weights.size(); index++){
-            if(random < weights[index]){
+        for(int index = 0; index < (int)weights.size(); index++) {
+            if (random < weights[index]) {
                 return index;
             }
             random -= weights[index];
@@ -73,7 +73,7 @@ namespace Util
 
     int RandomUtil::get_weighted_int(std::vector<int> weights, std::vector<int> return_values)
     {
-        if(weights.size() != return_values.size()){
+        if (weights.size() != return_values.size()) {
             throw "get_weighted_int weights and return_values size not equal";
         }
         return return_values[get_weighted_int(weights)];
