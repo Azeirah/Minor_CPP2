@@ -18,6 +18,7 @@ enum class Colour
     BLUE,
     RED,
     PURPLE,
+    NONE
 };
 
 Colour colour_from_string(string input);

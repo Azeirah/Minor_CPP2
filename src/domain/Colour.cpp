@@ -19,6 +19,6 @@ Colour colour_from_string(string input) {
     } else if (colour_string == "paars") {
         return Colour::PURPLE;
     } else {
-        throw "error, something went wrong"; // todo exception handling
+        throw "error, something went wrong"; // todo exception handling or perhaps return colour NONE?
     }
 }

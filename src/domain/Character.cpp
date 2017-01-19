@@ -16,6 +16,8 @@ istream& operator>>(istream& input, Character& character)
         string colour_string;
         input >> colour_string;
         character.colour = colour_from_string(colour_string); //todo try catch here
+    } else {
+        character.colour = Colour::NONE;
     }
 
     return input;
