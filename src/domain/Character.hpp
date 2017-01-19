@@ -6,18 +6,24 @@
 #define LINEARALGEBRA_CHARACTER_HPP
 
 #include <string>
+#include <iostream>
 #include "Colour.hpp"
 
+using std::istream;
+using std::ostream;
 using std::string;
 
 class Character {
 public:
-    Character(const string _name, const Colour _colour, const size_t _order_number);
+    Character();
 
     string name;
     // ability, perhaps as a lambda
     Colour colour;
     size_t order_number;
+
+    friend istream& operator>>(istream& input, Character& character);
+    friend ostream& operator<<(ostream& output, Character& character);
 };
 
 

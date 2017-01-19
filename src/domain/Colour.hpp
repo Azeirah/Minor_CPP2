@@ -5,6 +5,12 @@
 #ifndef LINEARALGEBRA_COLORS_HPP
 #define LINEARALGEBRA_COLORS_HPP
 
+#include <iostream>
+#include <algorithm>
+#include "../util/StringUtil.hpp"
+
+using std::istream;
+
 enum class Colour
 {
     YELLOW,
@@ -13,5 +19,7 @@ enum class Colour
     RED,
     PURPLE,
 };
+
+Colour colour_from_string(string input);
 
 #endif //LINEARALGEBRA_COLORS_HPP

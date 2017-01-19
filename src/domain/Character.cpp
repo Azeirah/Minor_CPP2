@@ -3,9 +3,29 @@
 //
 
 #include "Character.hpp"
+#include <iostream>
 
-Character::Character(const string _name, const Colour _colour, const size_t _order_number)
-: name(_name)
-, colour(_colour)
-, order_number(_order_number)
+Character::Character()
 {}
+
+istream& operator>>(istream& input, Character& character)
+{
+    input >> character.order_number >> character.name;
+
+    if (!input.eof()) {
+        string colour_string;
+        input >> colour_string;
+        character.colour = colour_from_string(colour_string); //todo try catch here
+    }
+
+    return input;
+}
+
+ostream& operator<<(ostream& output, Character& character)
+{
+    output
+        << "Name: " << character.name << ' '
+        << "Number:"<< character.order_number ;
+
+    return output;
+}
